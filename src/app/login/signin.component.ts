@@ -1,4 +1,7 @@
 import {Component} from "@angular/core"
+import { LoginService } from "../services/login.service";
+import { Router } from "@angular/router";
+
 
 @Component ({
     selector: "app-login-signin",
@@ -6,12 +9,18 @@ import {Component} from "@angular/core"
                 <my-sign [title]="signInHeading" (myEvent)="handleMyEvent($event)"></my-sign>`
 })
 export class SignInComponent{
-    signInUser="Guest"
+    signInUser:string;
     signInHeading="Sign-In"
-    constructor(){
-    }
+    constructor(private ls:LoginService, private signinrouter:Router){}
 
     handleMyEvent(obj) {
+        if(this.ls.isValidUser(obj.frmUser,obj.pwd)) {
+            this.signinrouter.navigate(['/manage'])
+        }
+        else {
+            this.signinrouter.navigate(['/error'])
+        }
         this.signInUser=obj.frmUser;
+        this.ls.setUserData(obj.frmUser);
     }
 }

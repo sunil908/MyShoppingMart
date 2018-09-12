@@ -16,7 +16,11 @@ export class ProductsComponent implements OnInit {
   constructor(private ps:ProductService, private csvc:CartService) { }
 
   ngOnInit() {
-    this.products=this.ps.getProducts();
+    //this.products=this.ps.getProducts();
+    this.ps.getProducts().subscribe(
+      (data) => this.products=data,
+      (err) => console.log("Error Occured", err)
+    );
   }
 
 addToCart(selProduct:Product){

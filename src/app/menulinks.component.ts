@@ -1,21 +1,17 @@
 import {Component} from "@angular/core";
 
-@Component({
-    selector: "app-menu-link",
-    template: "Resource link for app-menu-link"
-})
-export class MenuLinksComponent {
-    constructor()
-    {
-        console.log("Menu Links Component");
-    }
-}
-
 @Component ({
     selector: "app-home",
-    template: "<h3>Welcome to My Shopping App</h3>"
+    template: `<h3>Welcome to My Shopping App
+                <br>Price: {{price|currency:"INR"}}
+                <br>Date {{myDate|date:"MM/dd/yyyy"}}
+                <br>Product Name {{productName | uppercase | reversetext}}
+                </h3>`
 })
 export class HomeComponent {
+    public price=100.1234;
+    public myDate=new Date();
+    public productName="sony tv"
     constructor() {
         console.log("Home Component");
     }

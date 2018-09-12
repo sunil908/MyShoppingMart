@@ -1,4 +1,5 @@
 import {Component} from "@angular/core";
+import { LoginService } from "./services/login.service";
 
 @Component({
     selector: "app-header",
@@ -7,14 +8,18 @@ import {Component} from "@angular/core";
 
 export class HeaderComponent {
     appHeading:string;
-    userName="Guest";
+    userName="Visitor";
 
-    constructor(){
+    constructor(private lsvc:LoginService){
         console.log("Header Component Created");
         this.appHeading="My Shopping App";
     }
 
     showUserName():string{
-        return this.userName;
+        return this.lsvc.getUserData();
+    }
+
+    isUserLoggedIn(){
+        return this.lsvc.getIsLogged();
     }
 }

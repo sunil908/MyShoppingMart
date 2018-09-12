@@ -10,4 +10,5 @@ export class SignUpComponent{
     signUpHeading="Quick Sign Up";
     constructor(){
     }
+    
 }
