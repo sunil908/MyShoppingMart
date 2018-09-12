@@ -1,0 +1,21 @@
+<nav class="navbar bg-dark navbar-expand-sm navbar-dark">
+    <a href="" class="navbar-brand">
+        <img src="assets/images/angularicon-logo.png" style="width: 120px;height: 30px">
+        &nbsp; {{appHeading}}
+    </a>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" routerLink="/signin">Sign In</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" routerLink="/signup">Quick Sign In</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" routerLink="/list">Shopping List</a>
+        </li>
+    </ul>
+    <span class="navbar-text text-white">Welcome <b>{{showUserName()}}</b></span>
+</nav>
